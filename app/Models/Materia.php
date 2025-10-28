@@ -17,4 +17,21 @@ class Materia extends Model
         return $this->belongsToMany(Grupo::class, 'grupo_materias', 'materia_sigla', 'grupo_id')
                     ->withPivot('activo');
     }
+    
+
+    public function getRouteKeyName()
+    {
+        return 'sigla'; // {materia} por sigla
+    }
+
+    public function horarioClases()
+    {
+        return $this->hasMany(HorarioClase::class, 'materia_sigla', 'sigla');
+    }
+
+    // Helper: grupo "principal" (el activo si existe)
+    public function grupoActivo()
+    {
+        return $this->grupos()->wherePivot('activo', true)->first();
+    }
 }

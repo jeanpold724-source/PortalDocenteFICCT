@@ -4,7 +4,7 @@
 <div class="bg-white rounded-2xl border p-6">
   <div class="flex items-center justify-between mb-4">
     <h1 class="text-xl font-semibold">Aulas</h1>
-    <a href="{{ route('aulas.create') }}" class="rounded-xl bg-emerald-600 text-white px-4 py-2 text-sm hover:bg-emerald-700">
+    <a href="{{ route('coordinador.aulas.create') }}" class="rounded-xl bg-emerald-600 text-white px-4 py-2 text-sm hover:bg-emerald-700">
       Registrar aula
     </a>
   </div>
@@ -19,7 +19,7 @@
     </select>
     <button class="rounded-xl bg-slate-800 text-white px-3 py-2 text-sm">Aplicar</button>
     @if(($estado ?? 'todos')!=='todos')
-      <a href="{{ route('aulas.index') }}" class="text-sm text-slate-700 hover:underline">Limpiar</a>
+      <a href="{{ route('coordinador.aulas.index') }}" class="text-sm text-slate-700 hover:underline">Limpiar</a>
     @endif
   </form>
 
@@ -62,16 +62,16 @@
           </td>
           <td class="py-2 pr-4">
             <div class="flex items-center justify-end gap-3">
-              <a href="{{ route('aulas.edit', $aula) }}" class="text-emerald-700 hover:underline">Editar</a>
+              <a href="{{ route('coordinador.aulas.edit', $aula) }}" class="text-emerald-700 hover:underline">Editar</a>
 
               @if($aula->activo)
-                <form method="POST" action="{{ route('aulas.desactivar', $aula) }}"
+                <form method="POST" action="{{ route('coordinador.aulas.desactivar', $aula) }}"
                       onsubmit="return confirm('¿Desactivar el aula {{ $aula->numero }}?');">
                   @csrf @method('PUT')
                   <button class="text-rose-700 hover:underline">Desactivar</button>
                 </form>
               @else
-                <form method="POST" action="{{ route('aulas.activar', $aula) }}">
+                <form method="POST" action="{{ route('coordinador.aulas.activar', $aula) }}">
                   @csrf @method('PUT')
                   <button class="text-emerald-700 hover:underline">Activar</button>
                 </form>

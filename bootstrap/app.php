@@ -2,6 +2,8 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Middleware;
+use App\Http\Middleware\PermisoMiddleware;
+
 
 // ...
 return Application::configure(basePath: dirname(__DIR__))
@@ -15,6 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // 👇 registra tu alias de middleware
         $middleware->alias([
             'role' => \App\Http\Middleware\RoleMiddleware::class,
+             'permiso' => PermisoMiddleware::class, // 👈 este alias faltaba
         ]);
 
         // (opcional) puedes añadir globales/grupos aquí si lo necesitas:
@@ -24,3 +27,4 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function ($exceptions) {
         //
     })->create();
+

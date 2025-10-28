@@ -68,7 +68,7 @@ public function activar(\App\Models\Aula $aula)
 
         Aula::create($data);
 
-        return redirect()->route('aulas.index')->with('ok', 'Aula registrada');
+        return redirect()->route('coordinador.aulas.index')->with('ok', 'Aula registrada');
     }
 
 
@@ -90,7 +90,7 @@ public function activar(\App\Models\Aula $aula)
 
         $aula->update($data);
 
-        return redirect()->route('aulas.index')->with('ok', 'Aula actualizada');
+        return redirect()->route('coordinador.aulas.index')->with('ok', 'Aula actualizada');
     }
     public function destroy(Aula $aula)
     {
@@ -99,6 +99,6 @@ public function activar(\App\Models\Aula $aula)
         // baja lógica
         $aula->update(['activo' => false]);
 
-        return redirect()->route('aulas.index')->with('ok', 'Aula desactivada');
+        return redirect()->route('coordinador.aulas.index')->with('ok', 'Aula desactivada');
     }
 }

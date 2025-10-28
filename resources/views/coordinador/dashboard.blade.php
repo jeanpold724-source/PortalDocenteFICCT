@@ -100,21 +100,30 @@
                     <h2 class="text-xl font-semibold mb-2">Resumen General</h2>
                     <p class="text-slate-600">Aquí se muestran los datos principales del coordinador.</p>
                 </section>
-                    <section x-show="tab === 'aulas'">
-                        <a href="{{ route('aulas.index') }}" class="block p-4 border rounded-lg hover:bg-gray-50">
-                            <h2 class="font-semibold">Gestionar Aulas</h2>
-                            <p class="text-sm text-gray-600">Crear, editar y ver aulas.</p>
-                        </a>
+                <section x-show="tab === 'aulas'">
+                    <a href="{{ route('coordinador.aulas.index') }}"
+                        class="block p-4 border rounded-lg hover:bg-gray-50">
+                        <h2 class="font-semibold">Gestionar Aulas</h2>
+                        <p class="text-sm text-gray-600">Crear, editar y ver aulas.</p>
+                    </a>
                 </section>
 
                 <section x-show="tab === 'grupos'">
-                    <h2 class="text-xl font-semibold mb-2">Gestión de Grupos</h2>
-                    <p class="text-slate-600">Permite al coordinador revisar los grupos y asignaciones.</p>
+                    <a href="{{ route('coordinador.grupos.index') }}"
+                        class="block p-4 border rounded-lg hover:bg-gray-50">
+                        <h2 class="font-semibold">Gestionar Grupos</h2>
+                        <p class="text-sm text-gray-600">Crear, editar y activar/desactivar grupos.</p>
+                    </a>
                 </section>
 
                 <section x-show="tab === 'materias'">
-                    <h2 class="text-xl font-semibold mb-2">Gestión de Materias</h2>
-                    <p class="text-slate-600">Permite visualizar las materias asignadas por carrera o área.</p>
+                    <a href="{{ route('coordinador.materias.index') }}"
+                        class="block p-4 border rounded-lg hover:bg-gray-50">
+                        <h2 class="font-semibold">Gestionar Materias</h2>
+                        <p class="text-sm text-gray-600">
+                            Crear, editar, activar/desactivar y eliminar (solo si no tiene horarios asignados).
+                        </p>
+                    </a>
                 </section>
 
                 <section x-show="tab === 'mi-cuenta'">
@@ -154,8 +163,8 @@
 
                             <div>
                                 <label class="text-sm text-slate-700">Correo (usuario)</label>
-                                <input type="email" name="correo" value="{{ old('correo', auth()->user()->correo) }}"
-                                    required
+                                <input type="email" name="correo"
+                                    value="{{ old('correo', auth()->user()->correo) }}" required
                                     class="mt-1 w-full rounded-xl bg-slate-50 ring-1 ring-slate-200 focus:ring-2 focus:ring-emerald-500 px-4 py-3">
                             </div>
 

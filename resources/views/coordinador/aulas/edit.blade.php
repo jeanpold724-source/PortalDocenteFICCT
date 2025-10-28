@@ -10,7 +10,7 @@
     </div>
   @endif
 
-  <form method="POST" action="{{ route('aulas.update', $aula) }}" class="space-y-4">
+  <form method="POST" action="{{ route('coordinador.aulas.update', $aula) }}" class="space-y-4">
     @csrf
     @method('PUT')
 
@@ -32,7 +32,7 @@
 
     <div class="flex gap-2">
       <button class="rounded-xl bg-emerald-600 text-white px-4 py-2 text-sm hover:bg-emerald-700">Actualizar</button>
-      <a href="{{ route('aulas.index') }}" class="text-sm text-slate-700 hover:underline">Volver</a>
+      <a href="{{ route('coordinador.aulas.index') }}" class="text-sm text-slate-700 hover:underline">Volver</a>
     </div>
   </form>
 </div>
